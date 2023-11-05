@@ -1,3 +1,5 @@
+from pprint import pprint
+
 c,r = map(int,input().split())
 k = int(input())
 
@@ -6,11 +8,13 @@ dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
 
 maps = [[0] * c for _ in range(r)]
+visited = [[0] * c for _ in range(r)]
 
-if c * r > k:
+if c * r < k:
     print(0)
 else:
     # c = 7, r = 6 일때
+    # 그림 : 실제 배열
     # (c,r) -> (r-j, c-1)
     # (1,1) -> (5,0)
     # (1,2) -> (4,0)
@@ -30,8 +34,32 @@ else:
     # j -> 1 ~ c
     
     # [r-j][c-i]
-    for find_num in range(1, n+1):
-        pass
+    cr = r-1
+    cc = 0
+    direction = 0
+    x = 1
+    visited[cr][cc] = 1
+    while x != k:
+        nr = cr + dr[direction]
+        nc = cc + dc[direction]
+        if 0 <= nr < r and 0 <= nc < c and visited[nr][nc] == 0:
+            x += 1
+            visited[nr][nc] = x
+            cr = nr
+            cc = nc
+        else:
+            direction += 1
+            if direction == 4:
+                direction = 0
+        
+    # (0,5) -> 6,6
+    # (2,6) -> 7,4
+    # (0,6) -> 7,6
+
+    # (r,c) -> (nc+1, r-nr)
+    print(nc+1,r-nr)
+
+    
 
 
         
