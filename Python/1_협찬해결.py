@@ -21,16 +21,15 @@ def input_data() :
 
 
 def Solve():
-	sol = -30001#첫번째 방법의 최대 선호도
-
-	for i in range(1,N+1):
-		if hab[i-1] >= 0:
-		    hab[i] = D[i-1] + hab[i-1]
-		else:
-			hab[i] = D[i-1]
-		if hab[i] > sol:
-			sol = hab[i]
-	return sol
+    sol = -30001#첫번째 방법의 최대 선호도
+    for i in range(1,N+1):
+        if hab[i-1] >= 0:
+            hab[i] = D[i-1] + hab[i-1]
+        else:
+            hab[i] = D[i-1]
+        if hab[i] > sol:
+            sol = hab[i]
+    return sol
 
 #입력받는 부분
 N, D = input_data()
