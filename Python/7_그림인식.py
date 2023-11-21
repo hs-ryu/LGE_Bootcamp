@@ -1,40 +1,15 @@
 # -*- coding: utf-8 -*-
 # UTF-8 encoding when using korean
 import sys
-from collections import deque
-
-dr = [-1,1,0,0]
-dc = [0,0,-1,1]
-
 def input_data():
 	readl = sys.stdin.readline
 	N = int(readl())
 	map_pic = [list(map(int, readl().strip())) for _ in range(N)]
 	return N, map_pic
 
-
-def BFS(r,c):
-	q = deque()
-	q.append([r,c])
-	visited[r][c] = 1
-	
-	while q:
-		cr, cc = q.popleft()
-		for i in range(4):
-			nr = cr + dr[i]
-			nc = cc + dc[i]
-			if 0 <= nr < N and 0 <= nc < N and visited[nr][nc] == 0:
-				visited[nr][nc] = 1
-				q.append([nr,nc])
-				
-				
-	
-	
-
 sol = -1
 # 입력받는 부분
 N, map_pic = input_data()
-
 
 exist_nums = [0] * 10
 hider = [0] * 10
