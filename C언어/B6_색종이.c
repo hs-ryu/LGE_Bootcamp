@@ -98,7 +98,8 @@ int main(void){
     for (int i = 0; i < 101; i++) {
         for (int j = 0; j < 101; j++) {
             if (visited[i][j] == 0) {
-                ans += BFS(i,j);
+                int k = BFS(i,j);
+                ans += k;
             }
         }
     } 
