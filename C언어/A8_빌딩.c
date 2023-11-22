@@ -23,13 +23,6 @@ int main(void){
             break;
         }
     }
-    // 38
-    // idx = 2;
-    // i = 0, 1
-    // j = 1
-    // split[1] = 3;
-    // temp += 3;
-    // temp += 1;
 
     int total = 0;
     for (int i = 0; i < idx; i++) {
